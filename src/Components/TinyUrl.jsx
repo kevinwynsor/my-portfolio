@@ -14,15 +14,6 @@ export default function URLShortener() {
     });
   }, [longUrl]);
 
-  const generateShortCode = () => {
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let result = '';
-    for (let i = 0; i < 6; i++) {
-      result += characters.charAt(Math.floor(Math.random() * characters.length));
-    }
-    return result;
-  };
-
   const isValidUrl = (string) => {
     try {
       new URL(string);
@@ -44,23 +35,6 @@ export default function URLShortener() {
       setError('Please enter a valid URL (include http:// or https://)');
       return;
     }
-
-    const shortCode = customAlias.trim() || generateShortCode();
-    
-    // Check if custom alias already exists
-    if (customAlias.trim() && urls.some(url => url.shortCode === shortCode)) {
-      setError('This custom alias is already taken');
-      return;
-    }
-
-    const newUrl = {
-      id: Date.now(),
-      longUrl: longUrl,
-      shortCode: shortCode,
-      shortUrl: `short.ly/${shortCode}`,
-      clicks: 0,
-      createdAt: new Date().toLocaleDateString()
-    };
 
     setUrls([newUrl, ...urls]);
     setLongUrl('');
