@@ -9,18 +9,6 @@ export default function AISummarizer() {
   const [copied, setCopied] = useState(false);
   const [wordCount, setWordCount] = useState(0);
 
-  const DEF_HEADERS={
-    'Authorization': 'Bearer 9613e466a1c55d28ac51c497d61df00dbf9b1451',
-    'Content-Type': 'application/json'
-  }
-
-  const shortifyLink = useCallback(async () => {
-    const respData = await axios.post(`https://api-ssl.bitly.com/v4/bitlinks`, {
-      long_url: inputText,
-    });
-  }, [inputText]);
-
-
   const countWords = (text) => {
     return text.trim().split(/\s+/).filter(word => word.length > 0).length;
   };

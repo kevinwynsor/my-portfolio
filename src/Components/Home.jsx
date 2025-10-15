@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ExternalLink, Code, Blocks, FileText, Coins, Database, PiggyBank, CloudUploadIcon, LinkIcon, Scissors, Sparkles } from 'lucide-react';
+import { ExternalLink, Code, Blocks, FileText, Coins, Database, PiggyBank, CloudUploadIcon, LinkIcon, Scissors, Sparkles, Linkedin, Phone, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 
@@ -296,6 +296,70 @@ export default function Home() {
             <div className="text-center text-gray-500">
               <Code className="w-12 h-12 mx-auto mb-3 opacity-50" />
               <p className="text-sm">More projects coming soon...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            {/* Connect With Me Section */}
+            <div className="max-w-6xl mx-auto px-6 py-16" id="contact">
+        <h2 className="text-3xl font-bold mb-12 text-center">Connect With Me</h2>
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-gradient-to-br from-blue-900/40 to-purple-900/40 backdrop-blur-md rounded-2xl p-8 border border-blue-700/50 shadow-2xl">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mb-4">
+                <Mail className="w-10 h-10" />
+              </div>
+              <h3 className="text-2xl font-bold mb-2">Let's Work Together</h3>
+              <p className="text-gray-300">Feel free to reach out for collaborations or just a friendly chat</p>
+            </div>
+
+            <div className="space-y-4">
+              {/* Email */}
+              <a
+                href="mailto:kevinwynsor@gmail.com"
+                className="flex items-center gap-4 p-4 bg-white/10 hover:bg-white/15 rounded-xl transition-all duration-200 group border border-white/10 hover:border-blue-400/50"
+              >
+                <div className="p-3 bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-colors">
+                  <Mail className="w-6 h-6 text-blue-400" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm text-gray-400 mb-1">Email</p>
+                  <p className="text-white font-medium">kevinwynsor@gmail.com</p>
+                </div>
+                <ExternalLink className="w-5 h-5 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+              
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/in/kevin-wynsor-kong-048741236/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-4 bg-white/10 hover:bg-white/15 rounded-xl transition-all duration-200 group border border-white/10 hover:border-blue-500/50"
+              >
+                <div className="p-3 bg-blue-600/20 rounded-lg group-hover:bg-blue-600/30 transition-colors">
+                  <Linkedin className="w-6 h-6 text-blue-500" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm text-gray-400 mb-1">LinkedIn</p>
+                  <p className="text-white font-medium">linkedin.com/in/kevin-wynsor-kong</p>
+                </div>
+                <ExternalLink className="w-5 h-5 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+              
+              {/* Phone */}
+              <div
+                className="flex items-center gap-4 p-4 bg-white/10 hover:bg-white/15 rounded-xl transition-all duration-200 group border border-white/10 hover:border-green-400/50"
+              >
+                <div className="p-3 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition-colors">
+                  <Phone className="w-6 h-6 text-green-400" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm text-gray-400 mb-1">Phone</p>
+                  <p className="text-white font-medium">+63 (908) 422-2891</p>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
