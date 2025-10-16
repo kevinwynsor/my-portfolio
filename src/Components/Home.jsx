@@ -256,13 +256,15 @@ export default function Home() {
             <h3 className="text-2xl font-bold mb-2">URL Shortener</h3>
             <p className="text-purple-400 text-sm font-medium mb-3">Link Management Tool</p>
             <p className="text-gray-300 mb-4">
-              A beautiful URL shortening application with custom aliases, click tracking, and an intuitive interface.
+              A beautiful URL shortening application (powered by Bit.ly) with custom aliases, click tracking, and an intuitive interface.
             </p>
             
             <div className="flex flex-wrap gap-2">
               <span className="px-3 py-1 bg-indigo-700/50 rounded-full text-xs">React</span>
               <span className="px-3 py-1 bg-indigo-700/50 rounded-full text-xs">Tailwind CSS</span>
               <span className="px-3 py-1 bg-indigo-700/50 rounded-full text-xs">JavaScript</span>
+              <span className="px-3 py-1 bg-indigo-700/50 rounded-full text-xs">API Integration</span>
+              <span className="px-3 py-1 bg-indigo-700/50 rounded-full text-xs">Bitly API</span>
             </div>
           </Link>
 
@@ -281,13 +283,14 @@ export default function Home() {
             <h3 className="text-2xl font-bold mb-2">AI Summarizer</h3>
             <p className="text-cyan-400 text-sm font-medium mb-3">Text Analysis Tool</p>
             <p className="text-gray-300 mb-4">
-              Transform lengthy text into concise summaries with customizable length options and smart analysis.
+              Transform lengthy text into concise summaries with customizable length options and smart analysis (powered by Gemini AI).
             </p>
             
             <div className="flex flex-wrap gap-2">
               <span className="px-3 py-1 bg-cyan-700/50 rounded-full text-xs">React</span>
               <span className="px-3 py-1 bg-cyan-700/50 rounded-full text-xs">AI/ML</span>
-              <span className="px-3 py-1 bg-cyan-700/50 rounded-full text-xs">NLP</span>
+              <span className="px-3 py-1 bg-cyan-700/50 rounded-full text-xs">AI/API Integration</span>
+              <span className="px-3 py-1 bg-cyan-700/50 rounded-full text-xs">Gemini API</span>
             </div>
           </Link>
 
