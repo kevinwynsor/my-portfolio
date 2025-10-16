@@ -1,23 +1,23 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Link, Copy, CheckCircle, ExternalLink, Trash2, BarChart3, RefreshCw, AlertCircle } from 'lucide-react';
 import axios from 'axios';
+import { VITE_TINYURL_API_KEY } from '../setupConfig';
 
 export default function URLShortener() {
   const [longUrl, setLongUrl] = useState('');
   const [isValid, setIsValid] = useState(true);
   const [urls, setUrls] = useState([]);
   const [copiedId, setCopiedId] = useState(null);
-
-
+  
   const DEF_HEADERS= {
     headers: {
-    'Authorization': 'Bearer 9613e466a1c55d28ac51c497d61df00dbf9b1451',
+    'Authorization': `Bearer ${VITE_TINYURL_API_KEY}`,
     'Content-Type': 'application/json'
   }}
 
   const DEF_HEADERS2= {
     headers: {
-    'Authorization': 'Bearer 9613e466a1c55d28ac51c497d61df00dbf9b1451'
+    'Authorization': `Bearer ${VITE_TINYURL_API_KEY}`
   }}
 
   useEffect(() => {
@@ -36,9 +36,7 @@ export default function URLShortener() {
   }, [longUrl]);
 
   const handleRefresh = useCallback(async () => {
-    const respData = await axios.get('https://api-ssl.bitly.com/v4/groups/BpaceHVjVoi/bitlinks', {headers:{
-      'Authorization': 'Bearer 9613e466a1c55d28ac51c497d61df00dbf9b1451',
-    }});
+    const respData = await axios.get('https://api-ssl.bitly.com/v4/groups/BpaceHVjVoi/bitlinks', DEF_HEADERS2);
     console.log(respData)
     respData.data.links.map((resp)=>{
       const date = new Date(resp.created_at)
@@ -54,9 +52,7 @@ export default function URLShortener() {
 
     })
     
-    const respData2 = await axios.get('https://api-ssl.bitly.com/v4/bitlinks/bit.ly/4hd3Oub/clicks?unit=month&units=1', {headers:{
-      'Authorization': 'Bearer 9613e466a1c55d28ac51c497d61df00dbf9b1451',
-    }});
+    const respData2 = await axios.get('https://api-ssl.bitly.com/v4/bitlinks/bit.ly/4hd3Oub/clicks?unit=month&units=1', DEF_HEADERS2);
   }, [longUrl]);
 
   const handleChange = (e) => {
