@@ -1,13 +1,17 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { FileText, Sparkles, Copy, CheckCircle, RotateCcw, Zap } from 'lucide-react';
+import { GoogleGenAI } from "@google/genai";
+import { VITE_GEMINI_API_KEY } from '../setupConfig';
 
 export default function AISummarizer() {
   const [inputText, setInputText] = useState('');
   const [summary, setSummary] = useState('');
-  const [summaryLength, setSummaryLength] = useState('medium');
+  const [summaryLength, setSummaryLength] = useState('40%');
   const [isLoading, setIsLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const [wordCount, setWordCount] = useState(0);
+  
+  const ai = new GoogleGenAI({ apiKey: VITE_GEMINI_API_KEY })
 
   const countWords = (text) => {
     return text.trim().split(/\s+/).filter(word => word.length > 0).length;
@@ -17,37 +21,6 @@ export default function AISummarizer() {
     const text = e.target.value;
     setInputText(text);
     setWordCount(countWords(text));
-  };
-
-  const simulateSummary = (text, length) => {
-    if (!text.trim()) return '';
-
-    const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
-    let targetSentences;
-
-    switch(length) {
-      case 'short':
-        targetSentences = Math.max(1, Math.ceil(sentences.length * 0.2));
-        break;
-      case 'medium':
-        targetSentences = Math.max(2, Math.ceil(sentences.length * 0.4));
-        break;
-      case 'long':
-        targetSentences = Math.max(3, Math.ceil(sentences.length * 0.6));
-        break;
-      default:
-        targetSentences = Math.ceil(sentences.length * 0.4);
-    }
-
-    // Select evenly distributed sentences
-    const step = Math.floor(sentences.length / targetSentences);
-    const selectedSentences = [];
-    
-    for (let i = 0; i < targetSentences && i * step < sentences.length; i++) {
-      selectedSentences.push(sentences[i * step].trim());
-    }
-
-    return selectedSentences.join(' ');
   };
 
   const handleSummarize = async () => {
@@ -60,10 +33,15 @@ export default function AISummarizer() {
     setSummary('');
 
     // Simulate AI processing delay
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    const generatedSummary = simulateSummary(inputText, summaryLength);
-    setSummary(generatedSummary);
+    const response = await ai.models.generateContent({
+        model: "gemini-2.5-flash",
+        contents: inputText,
+        config: {
+          systemInstruction: `Summarize the text to have ${summaryLength} length from the original.`,
+        },
+      });
+      setSummary(response.text)
+    
     setIsLoading(false);
   };
 
@@ -83,7 +61,7 @@ export default function AISummarizer() {
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900 text-white p-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto mt-8">
         {/* Header */}
         <div className="text-center mb-12 pt-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl mb-4 animate-pulse">
@@ -114,7 +92,7 @@ export default function AISummarizer() {
             />
 
             <button
-              onClick={() => setInputText(exampleText)}
+              onClick={() => {setInputText(exampleText), setWordCount(countWords(exampleText))}}
               className="mt-3 text-sm text-cyan-300 hover:text-cyan-200 underline"
             >
               Load example text
@@ -127,9 +105,9 @@ export default function AISummarizer() {
               </label>
               <div className="grid grid-cols-3 gap-3">
                 {[
-                  { value: 'short', label: 'Short', desc: '~20%' },
-                  { value: 'medium', label: 'Medium', desc: '~40%' },
-                  { value: 'long', label: 'Long', desc: '~60%' }
+                  { value: '20%', label: 'Short', desc: '~20%' },
+                  { value: '40%', label: 'Medium', desc: '~40%' },
+                  { value: '60%', label: 'Long', desc: '~60%' }
                 ].map((option) => (
                   <button
                     key={option.value}
@@ -225,7 +203,7 @@ export default function AISummarizer() {
                   <span className="text-gray-300">Original: {wordCount} words</span>
                   <span className="text-gray-300">Summary: {countWords(summary)} words</span>
                   <span className="text-cyan-300 font-semibold">
-                    {Math.round((countWords(summary) / wordCount) * 100)}% reduction
+                    Summary Length {Math.round((countWords(summary) / wordCount) * 100)}%
                   </span>
                 </div>
               </div>
@@ -237,8 +215,8 @@ export default function AISummarizer() {
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
             <Zap className="w-10 h-10 mb-3 text-cyan-400" />
-            <h3 className="text-lg font-bold mb-2">Lightning Fast</h3>
-            <p className="text-gray-300 text-sm">Get instant summaries of your text in seconds</p>
+            <h3 className="text-lg font-bold mb-2">Gemini-2.5-Flash</h3>
+            <p className="text-gray-300 text-sm">Powered by Gemini</p>
           </div>
           <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
             <FileText className="w-10 h-10 mb-3 text-blue-400" />
