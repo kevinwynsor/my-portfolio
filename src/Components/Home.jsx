@@ -100,10 +100,10 @@ export default function Home() {
               KEVIN WYNSOR KONG
             </h1>
             <h1 className="md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-              Web3 Full-Stack Developer, and Banking Developer
+              Web3 Full-Stack Web Developer, and Banking Developer
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Full-stack developer that has knowledge in blockchain technology, NFTs, and decentralized applications
+              A Full-stack web developer that has knowledge in blockchain technology
             </p>
             <div className="flex flex-wrap justify-center gap-3 pt-4">
               {["Full Stack Web3 Developer", "Mainframe Developer", "Cloud Developer"].map((skill) => (
@@ -127,7 +127,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold mb-6">About Me</h2>
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                Hi! I'm Kevin, a passionate full-stack developer with expertise in JCL mainframe systems and modern web technologies. I specialize in building end-to-end web applications and exploring blockchain and Web3 solutions. Driven by curiosity and continuous learning, I thrive on tackling complex problems, integrating APIs, optimizing performance, and adapting to new tech stacks to deliver high-quality, forward-thinking solutions.
+                Hi! I'm Kevin, a passionate full-stack web developer with expertise in JCL mainframe systems and modern web technologies. I specialize in building end-to-end web applications and exploring blockchain and Web3 solutions. Driven by curiosity and continuous learning, I thrive on tackling complex problems, integrating APIs, optimizing performance, and adapting to new tech stacks to deliver high-quality, forward-thinking solutions.
               </p>
             </div>
           </div>
@@ -140,7 +140,7 @@ export default function Home() {
           <div className="bg-gradient-to-br from-blue-900/30 to-blue-800/30 backdrop-blur-sm rounded-2xl p-6 border border-blue-700/30">
             <Blocks className="w-12 h-12 mb-4 text-blue-400" />
             <h3 className="text-xl font-bold mb-2">Frontend Development</h3>
-            <p className="text-gray-300 text-sm">Html, MUI, Tailwind, Ant Design, ChakraUI, React, Typescript, Vue</p>
+            <p className="text-gray-300 text-sm">React, Typescript, Vue, Html, MUI, Tailwind, Ant Design, ChakraUI</p>
           </div>
           <div className="bg-gradient-to-br from-purple-900/30 to-purple-800/30 backdrop-blur-sm rounded-2xl p-6 border border-purple-700/30">
             <Code className="w-12 h-12 mb-4 text-purple-400" />
