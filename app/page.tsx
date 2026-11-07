@@ -101,11 +101,7 @@ export default function Portfolio() {
                   </h3>
                   <p className="text-sm text-[#a9b8d8]">{job.period}</p>
                 </div>
-                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-[#c8d4f0]">
-                  {job.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
+                <p className="mt-4 text-sm leading-relaxed text-[#c8d4f0]">{job.description}</p>
               </li>
             ))}
           </ol>
@@ -147,41 +143,29 @@ export default function Portfolio() {
           </dl>
         </Section>
 
-        <Section title="Background">
-          <div className="grid gap-5 sm:grid-cols-2">
-            <div className={card}>
-              <h3 className="font-medium text-[#e8eeff]">{education.school}</h3>
-              <p className="mt-1 text-xs text-[#a9b8d8]">{education.period}</p>
-              <p className="mt-3 text-sm leading-relaxed text-[#c8d4f0]">{education.degree}</p>
-              <h3 className="mt-6 font-medium text-[#e8eeff]">Spoken languages</h3>
-              <ul className="mt-3 space-y-1 text-sm text-[#c8d4f0]">
-                {languages.map((language) => (
-                  <li key={language}>{language}</li>
-                ))}
-              </ul>
-            </div>
-            <div className={card}>
-              <h3 className="font-medium text-[#e8eeff]">Awards and recognition</h3>
-              <ul className="mt-3 space-y-3 text-sm leading-relaxed text-[#c8d4f0]">
-                {awards.map((award) => (
-                  <li key={award}>{award}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Section>
-
         <Section title="Contact">
-          <div className={`${card} flex flex-wrap gap-x-8 gap-y-3 text-[#c8d4f0]`}>
-            <a className="underline-offset-4 hover:text-[#F4D58D] hover:underline" href={`mailto:${profile.email}`}>
-              {profile.email}
-            </a>
-            <a className="underline-offset-4 hover:text-[#F4D58D] hover:underline" href={profile.github}>
-              GitHub: kevinwynsor
-            </a>
-            <a className="underline-offset-4 hover:text-[#F4D58D] hover:underline" href={profile.linkedin}>
-              LinkedIn: Kevin Wynsor U. Kong
-            </a>
+          <div className={`${card} space-y-3 leading-relaxed text-[#c8d4f0]`}>
+            <p>
+              Want to work with me? Email me at{" "}
+              <a className="break-all text-[#F4D58D] underline-offset-4 hover:underline" href={`mailto:${profile.email}`}>
+                {profile.email}
+              </a>
+              .
+            </p>
+            <p>
+              Connect with me on{" "}
+              <a className="text-[#F4D58D] underline-offset-4 hover:underline" href={profile.linkedin}>
+                LinkedIn
+              </a>
+              .
+            </p>
+            <p>
+              See what I&apos;m building on{" "}
+              <a className="text-[#F4D58D] underline-offset-4 hover:underline" href={profile.github}>
+                GitHub
+              </a>
+              .
+            </p>
           </div>
         </Section>
       </main>
