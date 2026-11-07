@@ -44,48 +44,48 @@ export const projects = [
     name: "E-Commerce Site for Aplaya",
     period: "July 2026 – Present",
     description:
-      "Designed and developed a custom e-commerce platform for a jewelry business, streamlining the purchasing process, simplifying order management, and reducing the need for manual customer interactions.",
+      "A custom e-commerce site for a jewelry business that streamlines purchases and order management.",
     tags: ["Next.js", "Supabase", "Discord", "Gmail", "Google Sheets"],
   },
   {
     name: "Wagging Tails Database",
     period: "May 2024 – June 2024",
     description:
-      "Created a simple web application for dog lovers, allowing users to explore a collection of dog pictures fetched from a public API and browse through them using a paginated gallery.",
+      "A paginated dog photo gallery powered by a public API.",
     tags: ["ReactJS", "Public API"],
   },
   {
     name: "LC Masonary Home Website",
     period: "May 2022 – June 2022",
-    description: "Designed and developed a website for a masonry business, featuring an API-integrated email system that allows visitors to conveniently send inquiries and contact the business directly through the website.",
+    description: "A website for a masonry business with a built-in inquiry email form.",
     tags: ["ReactJS", "Chakra UI"],
   },
   {
     name: "Missing and Found Persons System",
     period: "April 2021 – December 2021",
     description:
-      "Designed and developed backend components for a Philippine National Police service management application, incorporating ITIL Service Desk practices and Agile development principles to support structured incident and service request management. Awarded Best in Capstone for the Service Management batch.",
+      "Back-end for a PNP service management app built on ITIL practices. Awarded Best in Capstone.",
     tags: ["PHP", "Laravel", "ITIL", "Agile"],
   },
   {
     name: "Sales and Inventory System for Baked by Julia",
     period: "October 2021 – December 2021",
     description:
-      "A web-based sales and inventory system built with two team members; connected the front end to Firestore.",
+      "A team-built sales and inventory web app; I connected the front end to Firestore.",
     tags: ["ReactJS", "Firebase", "MUI"],
   },
   {
     name: "Inventory System for Keto Kita PH",
     period: "August 2020 – March 2021",
     description:
-      "Served as project manager, back-end developer, and system analyst; connected MySQL data to the front end through EJS.",
+      "Led the project and built the MySQL back end, rendered through EJS.",
     tags: ["Node.js", "MySQL", "EJS"],
   },
   {
     name: "PocketSaver",
     period: "September 2020 – December 2020",
     description:
-      "Implemented back-end functionality including user authentication and CRUD operations.",
+      "Built the back end, including user authentication and CRUD.",
     tags: ["Node.js", "EJS", "MySQL"],
   },
 ];
@@ -99,6 +99,7 @@ export const skills = [
     group: "Frontend",
     items: ["ReactJS", "Next.js", "Vue.js", "HTML", "CSS", "Bootstrap", "Tailwind CSS", "Ant Design", "Chakra UI", "MUI"],
   },
+  { group: "Blockchain", items: ["Solidity", "Hardhat", "MetaMask"] },
   {
     group: "Backend and APIs",
     items: ["Node.js", "NestJS", "Laravel", "Azure Functions", "GraphQL", "Axios"],
