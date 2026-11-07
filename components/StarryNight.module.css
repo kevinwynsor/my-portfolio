@@ -1,0 +1,146 @@
+/* Starry night: pure CSS scene */
+
+.scene {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: #020510;
+  pointer-events: none;
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, #0d1b3e 0%, #060d20 40%, #020510 100%);
+}
+
+.skyGlow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 30% at 20% 60%, rgba(30, 60, 120, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 20% at 80% 40%, rgba(80, 40, 120, 0.12) 0%, transparent 70%);
+}
+
+.milkyWay {
+  position: absolute;
+  top: 0;
+  left: -10%;
+  width: 120%;
+  height: 65%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(160, 180, 255, 0.04) 20%,
+    rgba(200, 210, 255, 0.09) 40%,
+    rgba(180, 200, 255, 0.06) 55%,
+    transparent 75%
+  );
+  transform: rotate(-15deg);
+  filter: blur(8px);
+}
+
+.moonContainer {
+  position: absolute;
+  top: 7%;
+  right: 12%;
+}
+
+.moon {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f5f0d8, #e8d89a 50%, #c8b870 100%);
+  box-shadow:
+    0 0 20px 4px rgba(240, 220, 120, 0.4),
+    0 0 60px 10px rgba(220, 200, 100, 0.15);
+  animation: moonPulse 6s ease-in-out infinite;
+}
+
+.moonCrater1,
+.moonCrater2,
+.moonCrater3 {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.moonCrater1 {
+  top: 22%;
+  left: 20%;
+  width: 14px;
+  height: 14px;
+  background: rgba(160, 140, 60, 0.35);
+}
+
+.moonCrater2 {
+  top: 52%;
+  left: 52%;
+  width: 9px;
+  height: 9px;
+  background: rgba(150, 130, 55, 0.3);
+}
+
+.moonCrater3 {
+  top: 35%;
+  left: 60%;
+  width: 6px;
+  height: 6px;
+  background: rgba(155, 135, 55, 0.28);
+}
+
+.moonHalo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 1px solid rgba(240, 220, 120, 0.12);
+  box-shadow: 0 0 40px 20px rgba(240, 220, 120, 0.06);
+  animation: moonPulse 6s ease-in-out infinite reverse;
+}
+
+@keyframes moonPulse {
+  0%, 100% { box-shadow: 0 0 20px 4px rgba(240,220,120,0.4), 0 0 60px 10px rgba(220,200,100,0.15); }
+  50%      { box-shadow: 0 0 28px 8px rgba(240,220,120,0.55), 0 0 80px 18px rgba(220,200,100,0.2); }
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.5);
+  opacity: var(--opacity, 0.8);
+  animation: twinkle ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: var(--opacity, 0.8); transform: scale(1); }
+  50%      { opacity: 0.1; transform: scale(0.5); }
+}
+
+.shootingStar {
+  position: absolute;
+  width: 120px;
+  height: 1.5px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.9), transparent);
+  border-radius: 2px;
+  transform: rotate(-30deg);
+  opacity: 0;
+  animation: shoot 15s ease-in infinite;
+}
+
+@keyframes shoot {
+  0%   { opacity: 0; transform: rotate(-30deg) translateX(0); }
+  2%   { opacity: 1; }
+  10%  { opacity: 0; transform: rotate(-30deg) translateX(-320px); }
+  100% { opacity: 0; transform: rotate(-30deg) translateX(-320px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star, .moon, .moonHalo { animation: none; }
+  .shootingStar { display: none; }
+}
