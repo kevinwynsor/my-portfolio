@@ -143,10 +143,10 @@ export default function Portfolio() {
           </dl>
         </Section>
 
-        <Section title="Contact">
+        <Section title="Want to work with me?">
           <div className={`${card} space-y-3 leading-relaxed text-[#c8d4f0]`}>
             <p>
-              Want to work with me? Email me at{" "}
+              Send me an email at{" "}
               <a className="break-all text-[#F4D58D] underline-offset-4 hover:underline" href={`mailto:${profile.email}`}>
                 {profile.email}
               </a>
